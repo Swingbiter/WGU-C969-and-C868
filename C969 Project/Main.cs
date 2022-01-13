@@ -165,11 +165,96 @@ namespace C969_Project
                             select new
                             {
                                 ID = row.Key,
-                                Name = row.Value["customerName"]
-
+                                Name = row.Value["customerName"],
+                                AddressID = row.Value["addressId"]
                             };
 
             dgv_customers.DataSource = custArray.ToArray();
+        }
+
+        // Customers
+        private void btn_customer_add_Click(object sender, EventArgs e)
+        {
+            AddEditCustomer addCust = new AddEditCustomer();
+        }
+
+        private void btn_customer_edit_Click(object sender, EventArgs e)
+        {
+            var row = dgv_customers.SelectedRows[0];
+            int customerID = (int)row.Cells[0].Value;
+            AddEditCustomer editCust = new AddEditCustomer(customerID);
+        }
+
+        private void btn_customer_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Attention!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                // make like a tree & leaf
+                return;
+            }
+
+            // selected entry
+            var row = dgv_customers.SelectedRows[0];
+            int customerId = (int)row.Cells[0].Value;
+            int addressId = (int)row.Cells[2].Value;
+
+            // db
+            MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
+            conn.Open();
+
+            // delete customer
+            string delete_statement = $"DELETE FROM customer WHERE customerId = {customerId}";
+            MySqlCommand cmd = new MySqlCommand(delete_statement, conn);
+            cmd.ExecuteNonQuery();
+
+            // delete related address
+            delete_statement = $"DELETE FROM address WHERE addressId = {addressId}";
+            cmd = new MySqlCommand(delete_statement, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        private void btn_appt_add_Click(object sender, EventArgs e)
+        {
+        }
+
+        // Appointments
+        private void btn_appt_edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_appt_delete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Attention!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                // make like a tree & leaf
+                return;
+            }
+
+            // selected entry
+            var row = dgv_calendar.SelectedRows[0];
+            int apptId = (int)row.Cells[0].Value;
+
+            // db
+            MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
+            conn.Open();
+
+            // delete appt
+            string delete_statement = $"DELETE FROM appointment WHERE appointmentId = {apptId}";
+            MySqlCommand cmd = new MySqlCommand(delete_statement, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        private void radio_weekly_CheckedChanged(object sender, EventArgs e)
+        {
+            // update calender if radio changed
+            update_calendar(radio_weekly.Checked);
         }
     }
 }

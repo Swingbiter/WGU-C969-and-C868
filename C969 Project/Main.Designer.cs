@@ -75,6 +75,7 @@ namespace C969_Project
             this.btn_appt_delete.TabIndex = 10;
             this.btn_appt_delete.Text = "DELETE";
             this.btn_appt_delete.UseVisualStyleBackColor = true;
+            this.btn_appt_delete.Click += new System.EventHandler(this.btn_appt_delete_Click);
             // 
             // btn_appt_edit
             // 
@@ -85,6 +86,7 @@ namespace C969_Project
             this.btn_appt_edit.TabIndex = 9;
             this.btn_appt_edit.Text = "EDIT";
             this.btn_appt_edit.UseVisualStyleBackColor = true;
+            this.btn_appt_edit.Click += new System.EventHandler(this.btn_appt_edit_Click);
             // 
             // btn_appt_add
             // 
@@ -95,6 +97,7 @@ namespace C969_Project
             this.btn_appt_add.TabIndex = 8;
             this.btn_appt_add.Text = "ADD";
             this.btn_appt_add.UseVisualStyleBackColor = true;
+            this.btn_appt_add.Click += new System.EventHandler(this.btn_appt_add_Click);
             // 
             // btn_customer_delete
             // 
@@ -105,6 +108,7 @@ namespace C969_Project
             this.btn_customer_delete.TabIndex = 7;
             this.btn_customer_delete.Text = "DELETE";
             this.btn_customer_delete.UseVisualStyleBackColor = true;
+            this.btn_customer_delete.Click += new System.EventHandler(this.btn_customer_delete_Click);
             // 
             // btn_customer_edit
             // 
@@ -115,6 +119,7 @@ namespace C969_Project
             this.btn_customer_edit.TabIndex = 6;
             this.btn_customer_edit.Text = "EDIT";
             this.btn_customer_edit.UseVisualStyleBackColor = true;
+            this.btn_customer_edit.Click += new System.EventHandler(this.btn_customer_edit_Click);
             // 
             // btn_customer_add
             // 
@@ -125,6 +130,7 @@ namespace C969_Project
             this.btn_customer_add.TabIndex = 5;
             this.btn_customer_add.Text = "ADD";
             this.btn_customer_add.UseVisualStyleBackColor = true;
+            this.btn_customer_add.Click += new System.EventHandler(this.btn_customer_add_Click);
             // 
             // dgv_customers
             // 
@@ -155,6 +161,7 @@ namespace C969_Project
             this.radio_weekly.TabStop = true;
             this.radio_weekly.Text = "Weekly";
             this.radio_weekly.UseVisualStyleBackColor = true;
+            this.radio_weekly.CheckedChanged += new System.EventHandler(this.radio_weekly_CheckedChanged);
             // 
             // radio_monthly
             // 

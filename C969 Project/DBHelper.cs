@@ -103,5 +103,10 @@ namespace C969_Project
 
         // Lambda expression used here because what function does is obvious but path to get there is a bit obscure.
         static public Func<string, string> convertToTimeZone = date_str => DateTime.Parse(date_str.ToString()).ToLocalTime().ToString("MM/dd/yyyy hh:mm tt");
+    
+        static public Array getCityData()
+        {
+            return null;
+        }
     }
 }

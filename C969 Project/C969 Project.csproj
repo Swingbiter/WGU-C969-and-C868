@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditAppt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditAppt.Designer.cs">
+      <DependentUpon>AddEditAppt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCustomer.Designer.cs">
+      <DependentUpon>AddEditCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBHelper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -62,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddEditCustomer.resx">
+      <DependentUpon>AddEditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
