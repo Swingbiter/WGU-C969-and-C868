@@ -72,9 +72,9 @@ namespace C969_Project
         static public bool LoginUser(string userName, string pwd)
         {
             // remove me1!!!!
-            loggedIn = true;
-            currentUserName = "FartSniffer";
-            return true;
+            //loggedIn = true;
+            //currentUserName = "FartSniffer";
+            //return true;
 
             string query = $"SELECT userId FROM user WHERE userName = '{userName}' and password = '{pwd}'";
 
@@ -100,5 +100,8 @@ namespace C969_Project
 
             return false;
         }
+
+        // Lambda expression used here because what function does is obvious but path to get there is a bit obscure.
+        static public Func<string, string> convertToTimeZone = date_str => DateTime.Parse(date_str.ToString()).ToLocalTime().ToString("MM/dd/yyyy hh:mm tt");
     }
 }

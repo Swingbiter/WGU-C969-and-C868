@@ -14,7 +14,7 @@ namespace C969_Project
 {
     public partial class Login : Form
     {
-        int lcid = 1033; // swedish 1053, amercian english 1033
+        int lcid = 1053; // swedish (Sweden) 1053, american english 1033
         public string errorMsg = "Username and Password do not match.";
         public Login()
         {
