@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,8 @@ namespace C969_Project
             MySqlDataReader reader = cmd.ExecuteReader();
 
             Dictionary<string, string> customerInfo = new Dictionary<string, string>();
+
+            reader.Read();
 
             // Data from customer table
             customerInfo.Add("customerName", reader[1].ToString());
@@ -103,10 +106,67 @@ namespace C969_Project
 
         // Lambda expression used here because what function does is obvious but path to get there is a bit obscure.
         static public Func<string, string> convertToTimeZone = date_str => DateTime.Parse(date_str.ToString()).ToLocalTime().ToString("MM/dd/yyyy hh:mm tt");
+
+        // Get datestamp in DB ready format
+        static public Func<string> getTodayTimeStamp = () => DateTime.Today.ToString("yyyy/MM/dd hh:mm");
     
         static public Array getCityData()
         {
-            return null;
+            string cityQuery = $"SELECT * FROM city";
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(cityQuery, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+
+            Dictionary<int, Hashtable> cities = new Dictionary<int, Hashtable>();
+
+            while (reader.Read())
+            {
+                Hashtable city = new Hashtable();
+                city.Add("City", reader[1]);
+                city.Add("CountryID", reader[2]);
+
+                cities.Add(Convert.ToInt32(reader[0]), city);
+            }
+
+            reader.Close();
+
+            conn.Close();
+
+            var cityArray = from row in cities
+                            select new
+                            {
+                                ID = row.Key,
+                                Name = row.Value["City"],
+                                AddressID = row.Value["CountryId"]
+                            };
+
+            return cityArray.ToArray();
+        }
+
+        static public int getLastId(string table)
+        {
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+
+            string query = $"SELECT * FROM {table}";
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            List<int> ids = new List<int>();
+
+            while(reader.Read())
+            {
+                ids.Add(Convert.ToInt32(reader[0]));
+            }
+
+            reader.Close();
+            conn.Close();
+
+            return (int)ids[ids.Count - 1];
         }
     }
 }

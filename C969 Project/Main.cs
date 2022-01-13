@@ -146,7 +146,7 @@ namespace C969_Project
             {
                 Hashtable customer = new Hashtable();
                 customer.Add("customerName", reader[1]);
-                customer.Add("addresssId", reader[2]);
+                customer.Add("addressId", reader[2]);
                 customer.Add("createDate", reader[3]);
                 customer.Add("createdBy", reader[4]);
                 customer.Add("lastUpdate", reader[5]);
@@ -176,13 +176,24 @@ namespace C969_Project
         private void btn_customer_add_Click(object sender, EventArgs e)
         {
             AddEditCustomer addCust = new AddEditCustomer();
+            addCust.Show();
         }
 
         private void btn_customer_edit_Click(object sender, EventArgs e)
         {
-            var row = dgv_customers.SelectedRows[0];
-            int customerID = (int)row.Cells[0].Value;
-            AddEditCustomer editCust = new AddEditCustomer(customerID);
+            // try catch. Error handling type 1!!!
+            try
+            {
+                var row = dgv_customers.SelectedRows[0];
+                int customerID = (int)row.Cells[0].Value;
+                AddEditCustomer editCust = new AddEditCustomer(customerID);
+                editCust.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No appointment selected!");
+            }
+            
         }
 
         private void btn_customer_delete_Click(object sender, EventArgs e)
@@ -191,6 +202,13 @@ namespace C969_Project
             if (result == DialogResult.No)
             {
                 // make like a tree & leaf
+                return;
+            }
+
+            // you gotta select a row to delete row. Error handling type 2!!!
+            if (dgv_customers.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("No appointment selected!");
                 return;
             }
 
@@ -218,12 +236,28 @@ namespace C969_Project
 
         private void btn_appt_add_Click(object sender, EventArgs e)
         {
+            AddEditAppt addAppt = new AddEditAppt();
+            addAppt.Show();
         }
 
         // Appointments
         private void btn_appt_edit_Click(object sender, EventArgs e)
         {
+            int apptId;
+            
 
+            try
+            {
+                apptId = (int)dgv_calendar.SelectedRows[0].Cells[0].Value;
+                AddEditAppt editAppt = new AddEditAppt(apptId);
+                editAppt.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No appointment selected!");
+            }
+            
+            
         }
 
         private void btn_appt_delete_Click(object sender, EventArgs e)
@@ -235,6 +269,12 @@ namespace C969_Project
                 return;
             }
 
+            // you gotta select a row to delete row
+            if (dgv_calendar.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("No appointment selected!");
+                return;
+            }
             // selected entry
             var row = dgv_calendar.SelectedRows[0];
             int apptId = (int)row.Cells[0].Value;
