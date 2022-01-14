@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,14 @@ namespace C969_Project
             string pwd = txt_password.Text;
             if (DBHelper.LoginUser(userName, pwd) == true)
             {
+                // user log in log.
+                string path = Environment.CurrentDirectory + "/user_log.txt";
+                TextWriter tw = new StreamWriter(path, append: true);
+                string date = DBHelper.getTodayTimeStamp();
+                Console.WriteLine(date);
+                tw.WriteLine($"User: {userName} logged in at {date}\n");
+                tw.Close();
+
                 this.Close();
             }
             else

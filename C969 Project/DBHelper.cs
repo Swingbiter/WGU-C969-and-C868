@@ -195,6 +195,16 @@ namespace C969_Project
             return (int)ids[ids.Count - 1];
         }
 
-        
+        public static bool isAppointmentConflict(DateTime start, DateTime end, int app_id)
+        {
+            foreach (var app in appointments.Values)
+            {
+                if ((start < DateTime.Parse(app["end"].ToString()) && DateTime.Parse(app["start"].ToString()) < end) && app_id != (int)app["appointmentId"])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

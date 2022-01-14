@@ -44,7 +44,7 @@ namespace C969_Project
             appointment = DBHelper.getAppointmentData(_apptId);
             dtp_start.Value = DateTime.Parse(appointment["start"]).ToLocalTime();
             dtp_end.Value = DateTime.Parse(appointment["end"]).ToLocalTime();
-
+            txt_type.Text = appointment["type"];
 
             foreach (DataGridViewRow row in dgv_customers.Rows)
             {
@@ -117,21 +117,14 @@ namespace C969_Project
                 return;
             }
 
-            foreach (var appt in DBHelper.appointments)
+            DateTime appt_start = dtp_start.Value.ToUniversalTime();
+            DateTime appt_end = dtp_end.Value.ToUniversalTime();
+
+            if (DBHelper.isAppointmentConflict(appt_start, appt_end, _apptId))
             {
-                if ((int)appt.Value["appointmentId"] != _apptId)
-                {
-                    string appt_start = DBHelper.convertToDBTime(appt.Value["start"].ToString());
-                    string appt_end = DBHelper.convertToDBTime(appt.Value["start"].ToString());
-                    string start = DBHelper.convertToDBTime(dtp_start.Value.ToString());
-                    string end = DBHelper.convertToDBTime(dtp_end.Value.ToString());
-                    if (DateTime.Parse(start) >= DateTime.Parse(appt_start) && DateTime.Parse(start) < DateTime.Parse(appt_end))
-                    {
-                        MessageBox.Show("Appointment can't overlap a scheduled appointment");
-                        return;
-                    }
-                }
-            }
+                MessageBox.Show("Appointment conflicts with another schedulued appointment");
+                return;
+            }    
 
             if (!editMode)
             {
@@ -153,7 +146,17 @@ namespace C969_Project
             }
             else
             {
-                string updateStatement = "";
+                int customerId = (int)dgv_customers.SelectedRows[0].Cells[0].Value;
+                string start = DBHelper.convertToDBTime(dtp_start.Value.ToString());
+                string end = DBHelper.convertToDBTime(dtp_end.Value.ToString());
+                string type = txt_type.Text;
+                string updates = $"customerId = '{customerId}', type = '{type}', start= '{start}', end = '{end}',lastUpdate = '{DBHelper.getTodayTimeStamp()}', lastUpdateBy = '{DBHelper.currentUserName}'";
+                string updateStatement = $"UPDATE appointment SET {updates} WHERE appointmentID = {_apptId}";
+                MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(updateStatement, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
             this.Close();
         }
