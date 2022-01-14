@@ -32,7 +32,7 @@ namespace C969_Project
             this.dgv_customers = new System.Windows.Forms.DataGridView();
             this.lbl_select_cust = new System.Windows.Forms.Label();
             this.dtp_start = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_type = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,19 +64,19 @@ namespace C969_Project
             // 
             // dtp_start
             // 
-            this.dtp_start.CustomFormat = "yyyy/mm/dd HH:MM";
+            this.dtp_start.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dtp_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_start.Location = new System.Drawing.Point(52, 227);
             this.dtp_start.Name = "dtp_start";
             this.dtp_start.Size = new System.Drawing.Size(200, 20);
             this.dtp_start.TabIndex = 2;
             // 
-            // textBox1
+            // txt_type
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 201);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txt_type.Location = new System.Drawing.Point(152, 201);
+            this.txt_type.Name = "txt_type";
+            this.txt_type.Size = new System.Drawing.Size(100, 20);
+            this.txt_type.TabIndex = 3;
             // 
             // label2
             // 
@@ -107,7 +107,7 @@ namespace C969_Project
             // 
             // dtp_end
             // 
-            this.dtp_end.CustomFormat = "yyyy/mm/dd HH:MM";
+            this.dtp_end.CustomFormat = "yyyy/MM/dd HH:mm";
             this.dtp_end.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_end.Location = new System.Drawing.Point(52, 253);
             this.dtp_end.Name = "dtp_end";
@@ -145,7 +145,7 @@ namespace C969_Project
             this.Controls.Add(this.dtp_end);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_type);
             this.Controls.Add(this.dtp_start);
             this.Controls.Add(this.lbl_select_cust);
             this.Controls.Add(this.dgv_customers);
@@ -162,7 +162,7 @@ namespace C969_Project
         private System.Windows.Forms.DataGridView dgv_customers;
         private System.Windows.Forms.Label lbl_select_cust;
         private System.Windows.Forms.DateTimePicker dtp_start;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_type;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

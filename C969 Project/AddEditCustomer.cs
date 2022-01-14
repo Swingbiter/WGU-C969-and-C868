@@ -109,7 +109,6 @@ namespace C969_Project
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
-                this.Close();
             }
             else
             {
@@ -135,8 +134,8 @@ namespace C969_Project
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
-                this.Close();
             }
+            this.Close();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

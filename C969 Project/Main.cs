@@ -37,11 +37,23 @@ namespace C969_Project
                 panel_hider.Visible = true;
                 update_calendar(radio_weekly.Checked);
                 update_customers();
+                reminder();
             }
             else
             {
                 Application.Exit();
             }
+        }
+
+        private void customerFormClosed(object sender, FormClosedEventArgs e)
+        {
+            update_customers();
+        }
+
+        private void apptFormClosed(object sender, FormClosedEventArgs e)
+        {
+            update_calendar(radio_weekly.Checked);
+            reminder();
         }
 
         public void update_calendar(bool weekly)
@@ -62,6 +74,7 @@ namespace C969_Project
                 appt.Add("start", reader[2]);
                 appt.Add("end", reader[3]);
                 appt.Add("userId", reader[4]);
+                appt.Add("appointmentId", reader[5]);
 
                 appointments.Add(Convert.ToInt32(reader[5]), appt);
             }
@@ -127,9 +140,25 @@ namespace C969_Project
                                       EndTime = DBHelper.convertToTimeZone(row.Value["end"].ToString()),
                                       Customer = row.Value["customerName"]
                                   };
-
+            DBHelper.appointments = appointments;
             dgv_calendar.DataSource = appt_datasource.ToArray();
             dgv_calendar.Refresh();
+        }
+
+        public void reminder()
+        {
+            foreach (DataGridViewRow row in dgv_calendar.Rows)
+            {
+                DateTime start = DateTime.UtcNow;
+                DateTime appt_start = DateTime.Parse(row.Cells[2].Value.ToString()).ToUniversalTime();
+                TimeSpan timeUntilAppt = start - appt_start;
+
+                if (timeUntilAppt.TotalMinutes >= -15 && timeUntilAppt.TotalMinutes < 1)
+                {
+                    MessageBox.Show($"You have a meeting at {row.Cells[2].Value} with {row.Cells[4].Value}");
+                }    
+
+            }
         }
 
         public void update_customers()
@@ -176,6 +205,7 @@ namespace C969_Project
         private void btn_customer_add_Click(object sender, EventArgs e)
         {
             AddEditCustomer addCust = new AddEditCustomer();
+            addCust.FormClosed += customerFormClosed;
             addCust.Show();
         }
 
@@ -187,6 +217,7 @@ namespace C969_Project
                 var row = dgv_customers.SelectedRows[0];
                 int customerID = (int)row.Cells[0].Value;
                 AddEditCustomer editCust = new AddEditCustomer(customerID);
+                editCust.FormClosed += customerFormClosed;
                 editCust.Show();
             }
             catch (Exception)
@@ -232,11 +263,13 @@ namespace C969_Project
             cmd.ExecuteNonQuery();
 
             conn.Close();
+            update_customers();
         }
 
         private void btn_appt_add_Click(object sender, EventArgs e)
         {
             AddEditAppt addAppt = new AddEditAppt();
+            addAppt.FormClosed += apptFormClosed;
             addAppt.Show();
         }
 
@@ -245,15 +278,16 @@ namespace C969_Project
         {
             int apptId;
             
-
-            try
+            if (dgv_calendar.SelectedRows.Count >= 1)
             {
                 apptId = (int)dgv_calendar.SelectedRows[0].Cells[0].Value;
                 AddEditAppt editAppt = new AddEditAppt(apptId);
+                editAppt.FormClosed += apptFormClosed;
                 editAppt.Show();
             }
-            catch (Exception)
+            else
             {
+                Console.WriteLine($"Selected row: {dgv_calendar.SelectedRows.Count}");
                 MessageBox.Show("No appointment selected!");
             }
             
@@ -289,6 +323,7 @@ namespace C969_Project
             cmd.ExecuteNonQuery();
 
             conn.Close();
+            update_calendar(radio_weekly.Checked);
         }
 
         private void radio_weekly_CheckedChanged(object sender, EventArgs e)

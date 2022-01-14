@@ -15,6 +15,7 @@ namespace C969_Project
         public static int currentUserId;
         public static string currentUserName;
         public static bool loggedIn = false;
+        public static Dictionary<int, Hashtable> appointments = new Dictionary<int, Hashtable>();
 
         static public Dictionary<string, string> getCustomerData(int customerID)
         {
@@ -72,6 +73,28 @@ namespace C969_Project
             return customerInfo;
         }
 
+        static public Dictionary<string, string> getAppointmentData(int _appointmentID)
+        {
+            string desiredFields = "appointmentId, customerId, type, start, end";
+            string appointmentQuery = $"SELECT {desiredFields} FROM appointment WHERE appointmentId = '{_appointmentID.ToString()}'";
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(appointmentQuery, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            Dictionary<string, string> apptData = new Dictionary<string, string>();
+
+            reader.Read();
+
+            apptData.Add("appointmentId", reader[0].ToString());
+            apptData.Add("customerId", reader[1].ToString());
+            apptData.Add("type", reader[2].ToString());
+            apptData.Add("start", reader[3].ToString());
+            apptData.Add("end", reader[4].ToString());
+
+            return apptData;
+        }
+
         static public bool LoginUser(string userName, string pwd)
         {
             // remove me1!!!!
@@ -108,8 +131,11 @@ namespace C969_Project
         static public Func<string, string> convertToTimeZone = date_str => DateTime.Parse(date_str.ToString()).ToLocalTime().ToString("MM/dd/yyyy hh:mm tt");
 
         // Get datestamp in DB ready format
-        static public Func<string> getTodayTimeStamp = () => DateTime.Today.ToString("yyyy/MM/dd hh:mm");
-    
+        static public Func<string> getTodayTimeStamp = () => DateTime.Today.ToString("yyyy/MM/dd hh:mm:ss");
+
+        // Convert time to DB format
+        static public Func<string, string> convertToDBTime = date_str => DateTime.Parse(date_str.ToString()).ToUniversalTime().ToString("yyyy/MM/dd HH:mm:ss");
+
         static public Array getCityData()
         {
             string cityQuery = $"SELECT * FROM city";
@@ -168,5 +194,7 @@ namespace C969_Project
 
             return (int)ids[ids.Count - 1];
         }
+
+        
     }
 }
