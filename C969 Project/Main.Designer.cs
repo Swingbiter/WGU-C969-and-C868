@@ -41,6 +41,7 @@ namespace C969_Project
             this.radio_monthly = new System.Windows.Forms.RadioButton();
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.lbl_welcome = new System.Windows.Forms.Label();
+            this.btn_reports = new System.Windows.Forms.Button();
             this.panel_hider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_calendar)).BeginInit();
@@ -48,6 +49,7 @@ namespace C969_Project
             // 
             // panel_hider
             // 
+            this.panel_hider.Controls.Add(this.btn_reports);
             this.panel_hider.Controls.Add(this.btn_appt_delete);
             this.panel_hider.Controls.Add(this.btn_appt_edit);
             this.panel_hider.Controls.Add(this.btn_appt_add);
@@ -60,7 +62,7 @@ namespace C969_Project
             this.panel_hider.Controls.Add(this.dgv_calendar);
             this.panel_hider.Controls.Add(this.lbl_welcome);
             this.panel_hider.Location = new System.Drawing.Point(9, 10);
-            this.panel_hider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_hider.Margin = new System.Windows.Forms.Padding(2);
             this.panel_hider.Name = "panel_hider";
             this.panel_hider.Size = new System.Drawing.Size(597, 346);
             this.panel_hider.TabIndex = 0;
@@ -69,7 +71,7 @@ namespace C969_Project
             // btn_appt_delete
             // 
             this.btn_appt_delete.Location = new System.Drawing.Point(416, 297);
-            this.btn_appt_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_appt_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_appt_delete.Name = "btn_appt_delete";
             this.btn_appt_delete.Size = new System.Drawing.Size(61, 19);
             this.btn_appt_delete.TabIndex = 10;
@@ -80,7 +82,7 @@ namespace C969_Project
             // btn_appt_edit
             // 
             this.btn_appt_edit.Location = new System.Drawing.Point(356, 297);
-            this.btn_appt_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_appt_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_appt_edit.Name = "btn_appt_edit";
             this.btn_appt_edit.Size = new System.Drawing.Size(56, 19);
             this.btn_appt_edit.TabIndex = 9;
@@ -91,7 +93,7 @@ namespace C969_Project
             // btn_appt_add
             // 
             this.btn_appt_add.Location = new System.Drawing.Point(295, 297);
-            this.btn_appt_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_appt_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_appt_add.Name = "btn_appt_add";
             this.btn_appt_add.Size = new System.Drawing.Size(56, 19);
             this.btn_appt_add.TabIndex = 8;
@@ -102,7 +104,7 @@ namespace C969_Project
             // btn_customer_delete
             // 
             this.btn_customer_delete.Location = new System.Drawing.Point(126, 297);
-            this.btn_customer_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_customer_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_customer_delete.Name = "btn_customer_delete";
             this.btn_customer_delete.Size = new System.Drawing.Size(62, 19);
             this.btn_customer_delete.TabIndex = 7;
@@ -113,7 +115,7 @@ namespace C969_Project
             // btn_customer_edit
             // 
             this.btn_customer_edit.Location = new System.Drawing.Point(65, 297);
-            this.btn_customer_edit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_customer_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_customer_edit.Name = "btn_customer_edit";
             this.btn_customer_edit.Size = new System.Drawing.Size(56, 19);
             this.btn_customer_edit.TabIndex = 6;
@@ -124,7 +126,7 @@ namespace C969_Project
             // btn_customer_add
             // 
             this.btn_customer_add.Location = new System.Drawing.Point(4, 297);
-            this.btn_customer_add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_customer_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_customer_add.Name = "btn_customer_add";
             this.btn_customer_add.Size = new System.Drawing.Size(56, 19);
             this.btn_customer_add.TabIndex = 5;
@@ -138,7 +140,7 @@ namespace C969_Project
             this.dgv_customers.AllowUserToDeleteRows = false;
             this.dgv_customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_customers.Location = new System.Drawing.Point(4, 56);
-            this.dgv_customers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_customers.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_customers.MultiSelect = false;
             this.dgv_customers.Name = "dgv_customers";
             this.dgv_customers.ReadOnly = true;
@@ -154,7 +156,7 @@ namespace C969_Project
             this.radio_weekly.AutoSize = true;
             this.radio_weekly.Checked = true;
             this.radio_weekly.Location = new System.Drawing.Point(498, 320);
-            this.radio_weekly.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_weekly.Margin = new System.Windows.Forms.Padding(2);
             this.radio_weekly.Name = "radio_weekly";
             this.radio_weekly.Size = new System.Drawing.Size(61, 17);
             this.radio_weekly.TabIndex = 3;
@@ -167,7 +169,7 @@ namespace C969_Project
             // 
             this.radio_monthly.AutoSize = true;
             this.radio_monthly.Location = new System.Drawing.Point(498, 298);
-            this.radio_monthly.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radio_monthly.Margin = new System.Windows.Forms.Padding(2);
             this.radio_monthly.Name = "radio_monthly";
             this.radio_monthly.Size = new System.Drawing.Size(62, 17);
             this.radio_monthly.TabIndex = 2;
@@ -180,7 +182,7 @@ namespace C969_Project
             this.dgv_calendar.AllowUserToDeleteRows = false;
             this.dgv_calendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_calendar.Location = new System.Drawing.Point(295, 56);
-            this.dgv_calendar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgv_calendar.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_calendar.MultiSelect = false;
             this.dgv_calendar.Name = "dgv_calendar";
             this.dgv_calendar.ReadOnly = true;
@@ -201,13 +203,24 @@ namespace C969_Project
             this.lbl_welcome.TabIndex = 0;
             this.lbl_welcome.Text = "Welcome, user!";
             // 
+            // btn_reports
+            // 
+            this.btn_reports.Location = new System.Drawing.Point(519, 7);
+            this.btn_reports.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_reports.Name = "btn_reports";
+            this.btn_reports.Size = new System.Drawing.Size(62, 19);
+            this.btn_reports.TabIndex = 11;
+            this.btn_reports.Text = "REPORTS";
+            this.btn_reports.UseVisualStyleBackColor = true;
+            this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 366);
             this.Controls.Add(this.panel_hider);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Scheduling";
             this.panel_hider.ResumeLayout(false);
@@ -232,6 +245,7 @@ namespace C969_Project
         private System.Windows.Forms.Button btn_customer_edit;
         private System.Windows.Forms.Button btn_customer_add;
         private System.Windows.Forms.DataGridView dgv_customers;
+        private System.Windows.Forms.Button btn_reports;
     }
 }
 

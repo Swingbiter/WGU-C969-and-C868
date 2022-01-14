@@ -331,5 +331,11 @@ namespace C969_Project
             // update calender if radio changed
             update_calendar(radio_weekly.Checked);
         }
+
+        private void btn_reports_Click(object sender, EventArgs e)
+        {
+            Reports report = new Reports();
+            report.Show();
+        }
     }
 }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace C969_Project
 {
@@ -59,7 +61,7 @@ namespace C969_Project
                     row.Selected = true;
                     dgv_city.CurrentCell = row.Cells[0];
                 }
-                        
+
             }
 
             if (active)
