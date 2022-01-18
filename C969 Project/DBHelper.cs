@@ -95,6 +95,39 @@ namespace C969_Project
             return apptData;
         }
 
+        static public string getUserName(int userId)
+        {
+            string query = $"SELECT userName FROM user WHERE userId = {userId}";
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            return reader[0].ToString();
+        }
+
+        static public string getCustomerName(int customerId)
+        {
+            string query = $"SELECT customerName FROM customer WHERE customerId = {customerId}";
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            return reader[0].ToString();
+        }
+
+        static public string getCityName(int cityID)
+        {
+            string query = $"SELECT city FROM city WHERE cityId = {cityID}";
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            return reader[0].ToString();
+        }
+
         static public bool LoginUser(string userName, string pwd)
         {
             // remove me1!!!!

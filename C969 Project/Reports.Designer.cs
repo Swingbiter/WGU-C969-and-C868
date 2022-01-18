@@ -32,19 +32,21 @@ namespace C969_Project
             this.dgv_typeMonth = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_consultant = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgv_cityCount = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_typeMonth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_consultant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cityCount)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_typeMonth
             // 
             this.dgv_typeMonth.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_typeMonth.Location = new System.Drawing.Point(12, 25);
+            this.dgv_typeMonth.MultiSelect = false;
             this.dgv_typeMonth.Name = "dgv_typeMonth";
+            this.dgv_typeMonth.RowHeadersVisible = false;
             this.dgv_typeMonth.Size = new System.Drawing.Size(240, 150);
             this.dgv_typeMonth.TabIndex = 0;
             // 
@@ -66,47 +68,51 @@ namespace C969_Project
             this.label2.TabIndex = 3;
             this.label2.Text = "Consultant Schedules";
             // 
-            // dataGridView2
+            // dgv_consultant
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(258, 25);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView2.TabIndex = 2;
+            this.dgv_consultant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_consultant.Location = new System.Drawing.Point(258, 25);
+            this.dgv_consultant.MultiSelect = false;
+            this.dgv_consultant.Name = "dgv_consultant";
+            this.dgv_consultant.RowHeadersVisible = false;
+            this.dgv_consultant.Size = new System.Drawing.Size(240, 150);
+            this.dgv_consultant.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(504, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Consultant Schedules";
+            this.label3.Text = "Address Count By City";
             // 
-            // dataGridView3
+            // dgv_cityCount
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(504, 25);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView3.TabIndex = 4;
+            this.dgv_cityCount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_cityCount.Location = new System.Drawing.Point(504, 25);
+            this.dgv_cityCount.MultiSelect = false;
+            this.dgv_cityCount.Name = "dgv_cityCount";
+            this.dgv_cityCount.RowHeadersVisible = false;
+            this.dgv_cityCount.Size = new System.Drawing.Size(240, 150);
+            this.dgv_cityCount.TabIndex = 4;
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(755, 197);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dgv_cityCount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgv_consultant);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_typeMonth);
             this.Name = "Reports";
             this.Text = "Reports";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_typeMonth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_consultant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cityCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,8 +123,8 @@ namespace C969_Project
         private System.Windows.Forms.DataGridView dgv_typeMonth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_consultant;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgv_cityCount;
     }
 }
