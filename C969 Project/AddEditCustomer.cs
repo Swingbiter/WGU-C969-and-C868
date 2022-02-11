@@ -16,60 +16,20 @@ namespace C969_Project
 {
     public partial class AddEditCustomer : Form
     {
-        public bool editMode = false;
-
         public AddEditCustomer()
         {
-            Console.WriteLine("!!!!");
             InitializeComponent();
             this.Text = "Add Customer";
             lbl_addedit.Text = "Add";
             btn_addedit.Text = "Add";
             load_DGV();
         }
-
-        public AddEditCustomer(int customerId)
-        {
-            InitializeComponent();
-            editMode = true;
-            _customerId = customerId;
-            this.Text = "Edit Customer";
-            lbl_addedit.Text = "Edit";
-            btn_addedit.Text = "Edit";
-            load_DGV();
-            load_customer();
-        }
-
         public void load_DGV()
         {
             dgv_city.DataSource = DBHelper.getCityData();
         }
 
-        public void load_customer()
-        {
-            Dictionary<string, string> customerData = DBHelper.getCustomerData(_customerId);
-            txt_name.Text = customerData["customerName"];
-            txt_address.Text = customerData["address"];
-            txt_postal.Text = customerData["zip"];
-            txt_phone.Text = customerData["phone"];
-            bool active = Convert.ToBoolean(customerData["active"]);
-
-            int addressId = Convert.ToInt32(customerData["addressId"]);
-            foreach (DataGridViewRow row in dgv_city.Rows)
-            {
-                if ((int)row.Cells[0].Value == addressId)
-                {
-                    row.Selected = true;
-                    dgv_city.CurrentCell = row.Cells[0];
-                }
-
-            }
-
-            if (active)
-            {
-                chkBox_active.Checked = true;
-            }
-        }
+        
 
         public virtual void btn_addedit_Click(object sender, EventArgs e)
         {
@@ -126,6 +86,36 @@ namespace C969_Project
         public EditCustomer (int customerId)
         {
             _customerId = customerId;
+            this.Text = "Edit Customer";
+            lbl_addedit.Text = "Edit";
+            btn_addedit.Text = "Edit";
+            load_customer();
+        }
+
+        public void load_customer()
+        {
+            Dictionary<string, string> customerData = DBHelper.getCustomerData(_customerId);
+            txt_name.Text = customerData["customerName"];
+            txt_address.Text = customerData["address"];
+            txt_postal.Text = customerData["zip"];
+            txt_phone.Text = customerData["phone"];
+            bool active = Convert.ToBoolean(customerData["active"]);
+
+            int addressId = Convert.ToInt32(customerData["addressId"]);
+            foreach (DataGridViewRow row in dgv_city.Rows)
+            {
+                if ((int)row.Cells[0].Value == addressId)
+                {
+                    row.Selected = true;
+                    dgv_city.CurrentCell = row.Cells[0];
+                }
+
+            }
+
+            if (active)
+            {
+                chkBox_active.Checked = true;
+            }
         }
 
         public override void btn_addedit_Click(object sender, EventArgs e)
