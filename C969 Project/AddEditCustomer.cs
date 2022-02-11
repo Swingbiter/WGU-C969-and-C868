@@ -156,6 +156,11 @@ namespace C969_Project
             string postal = txt_postal.Text;
             int active = 0;
             int city = (int)dgv_city.SelectedRows[0].Cells[0].Value;
+
+            if (chkBox_active.Checked)
+            {
+                active = 1;
+            }
         }
     }
 }

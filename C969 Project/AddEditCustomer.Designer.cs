@@ -209,19 +209,19 @@ namespace C969_Project
         #endregion
 
         private System.Windows.Forms.Label lbl_addedit;
-        private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Button btn_addedit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_phone;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_postal;
-        private System.Windows.Forms.DataGridView dgv_city;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkBox_active;
+        internal System.Windows.Forms.TextBox txt_name;
+        internal System.Windows.Forms.TextBox txt_address;
+        internal System.Windows.Forms.TextBox txt_phone;
+        internal System.Windows.Forms.TextBox txt_postal;
+        internal System.Windows.Forms.DataGridView dgv_city;
+        internal System.Windows.Forms.CheckBox chkBox_active;
     }
 }
