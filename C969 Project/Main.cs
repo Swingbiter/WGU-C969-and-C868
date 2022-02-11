@@ -337,5 +337,29 @@ namespace C969_Project
             Reports report = new Reports();
             report.Show();
         }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string search = txtBox_search.Text.ToLower();
+
+            try
+            {
+                foreach (DataGridViewRow row in dgv_customers.Rows)
+                {
+
+                    string rowValue = row.Cells[1].Value.ToString().ToLower();
+                    if (rowValue.Contains(search))
+                    {
+                        Console.WriteLine("Ding");
+                        row.Selected = true;
+                        break;
+                    }
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
     }
 }

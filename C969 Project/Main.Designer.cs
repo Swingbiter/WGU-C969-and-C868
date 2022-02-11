@@ -30,6 +30,7 @@ namespace C969_Project
         private void InitializeComponent()
         {
             this.panel_hider = new System.Windows.Forms.Panel();
+            this.btn_reports = new System.Windows.Forms.Button();
             this.btn_appt_delete = new System.Windows.Forms.Button();
             this.btn_appt_edit = new System.Windows.Forms.Button();
             this.btn_appt_add = new System.Windows.Forms.Button();
@@ -41,7 +42,8 @@ namespace C969_Project
             this.radio_monthly = new System.Windows.Forms.RadioButton();
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.lbl_welcome = new System.Windows.Forms.Label();
-            this.btn_reports = new System.Windows.Forms.Button();
+            this.txtBox_search = new System.Windows.Forms.TextBox();
+            this.btn_search = new System.Windows.Forms.Button();
             this.panel_hider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_calendar)).BeginInit();
@@ -49,6 +51,8 @@ namespace C969_Project
             // 
             // panel_hider
             // 
+            this.panel_hider.Controls.Add(this.btn_search);
+            this.panel_hider.Controls.Add(this.txtBox_search);
             this.panel_hider.Controls.Add(this.btn_reports);
             this.panel_hider.Controls.Add(this.btn_appt_delete);
             this.panel_hider.Controls.Add(this.btn_appt_edit);
@@ -67,6 +71,17 @@ namespace C969_Project
             this.panel_hider.Size = new System.Drawing.Size(597, 346);
             this.panel_hider.TabIndex = 0;
             this.panel_hider.Visible = false;
+            // 
+            // btn_reports
+            // 
+            this.btn_reports.Location = new System.Drawing.Point(519, 7);
+            this.btn_reports.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_reports.Name = "btn_reports";
+            this.btn_reports.Size = new System.Drawing.Size(62, 19);
+            this.btn_reports.TabIndex = 11;
+            this.btn_reports.Text = "REPORTS";
+            this.btn_reports.UseVisualStyleBackColor = true;
+            this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
             // 
             // btn_appt_delete
             // 
@@ -203,16 +218,22 @@ namespace C969_Project
             this.lbl_welcome.TabIndex = 0;
             this.lbl_welcome.Text = "Welcome, user!";
             // 
-            // btn_reports
+            // txtBox_search
             // 
-            this.btn_reports.Location = new System.Drawing.Point(519, 7);
-            this.btn_reports.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_reports.Name = "btn_reports";
-            this.btn_reports.Size = new System.Drawing.Size(62, 19);
-            this.btn_reports.TabIndex = 11;
-            this.btn_reports.Text = "REPORTS";
-            this.btn_reports.UseVisualStyleBackColor = true;
-            this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
+            this.txtBox_search.Location = new System.Drawing.Point(4, 31);
+            this.txtBox_search.Name = "txtBox_search";
+            this.txtBox_search.Size = new System.Drawing.Size(205, 20);
+            this.txtBox_search.TabIndex = 12;
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(215, 28);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 13;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // Main
             // 
@@ -246,6 +267,8 @@ namespace C969_Project
         private System.Windows.Forms.Button btn_customer_add;
         private System.Windows.Forms.DataGridView dgv_customers;
         private System.Windows.Forms.Button btn_reports;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.TextBox txtBox_search;
     }
 }
 
