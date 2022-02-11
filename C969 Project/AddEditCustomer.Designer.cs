@@ -207,15 +207,11 @@ namespace C969_Project
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbl_addedit;
-        private System.Windows.Forms.Button btn_addedit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.TextBox txt_name;
         internal System.Windows.Forms.TextBox txt_address;
@@ -223,5 +219,8 @@ namespace C969_Project
         internal System.Windows.Forms.TextBox txt_postal;
         internal System.Windows.Forms.DataGridView dgv_city;
         internal System.Windows.Forms.CheckBox chkBox_active;
+        internal System.Windows.Forms.Button btn_addedit;
+        internal System.Windows.Forms.Button btn_cancel;
+        public System.Windows.Forms.Label lbl_addedit;
     }
 }
