@@ -70,7 +70,7 @@ namespace C969_Project
             }
         }
 
-        private void btn_addedit_Click(object sender, EventArgs e)
+        public virtual void btn_addedit_Click(object sender, EventArgs e)
         {
             if (
                     string.IsNullOrEmpty(txt_name.Text) ||
@@ -143,6 +143,19 @@ namespace C969_Project
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+    }
+
+    public class EditCustomer : AddEditCustomer
+    {
+        public override void btn_addedit_Click(object sender, EventArgs e)
+        {
+            string name = txt_name.Text;
+            string address = txt_address.Text;
+            string phone = txt_phone.Text;
+            string postal = txt_postal.Text;
+            int active = 0;
+            int city = (int)dgv_city.SelectedRows[0].Cells[0].Value;
         }
     }
 }
