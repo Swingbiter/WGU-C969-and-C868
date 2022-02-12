@@ -16,6 +16,7 @@ namespace C969_Project
     public partial class Main : Form
     {
         public Login loginform;
+        private DataTable customer_dt;
         public Main()
         {
             InitializeComponent();
@@ -168,10 +169,10 @@ namespace C969_Project
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
-            DataTable dt = new DataTable("customers");
-            dt.Load(cmd.ExecuteReader());
+            customer_dt = new DataTable("customers");
+            customer_dt.Load(cmd.ExecuteReader());
 
-            dgv_customers.DataSource = dt;
+            dgv_customers.DataSource = customer_dt;
         }
 
         // Customers
@@ -337,7 +338,26 @@ namespace C969_Project
 
         private void txtBox_search_TextChanged(object sender, EventArgs e)
         {
-            //
+            string search = txtBox_search.Text;
+            try
+            {
+                var re = from row in customer_dt.AsEnumerable()
+                    where row[1].ToString().Contains(search)
+                    select row;
+                
+                if (re.Count()==0)
+                {
+                    MessageBox.Show("No");
+                }
+                else
+                {
+                    dgv_customers.DataSource = re.CopyToDataTable();
+                }
+            }
+            catch
+            {
+                return;
+            }
         }
     }
 }
