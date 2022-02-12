@@ -122,7 +122,7 @@ namespace C969_Project
                                   };
             DBHelper.appointments = appointments;
 
-
+            dgv_calendar.DataSource = appt_datasource.ToArray();
             dgv_calendar.Refresh();
         }
 
