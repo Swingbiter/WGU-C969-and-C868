@@ -36,7 +36,7 @@ namespace C969_Project
             {
                 lbl_welcome.Text = $"Welcome, {DBHelper.currentUserName}";
                 panel_hider.Visible = true;
-                update_calendar(radio_weekly.Checked);
+                update_calendar();
                 update_customers();
                 reminder();
             }
@@ -53,11 +53,11 @@ namespace C969_Project
 
         private void apptFormClosed(object sender, FormClosedEventArgs e)
         {
-            update_calendar(radio_weekly.Checked);
+            update_calendar();
             reminder();
         }
 
-        public void update_calendar(bool weekly)
+        public void update_calendar()
         {
             string query = "SELECT customerId, type, start, end, userId, appointmentId FROM appointment";
             MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
@@ -109,29 +109,8 @@ namespace C969_Project
                 DateTime start = DateTime.Parse(appt.Value["start"].ToString());
                 DateTime end = DateTime.Parse(appt.Value["end"].ToString());
                 DateTime today = DateTime.UtcNow;
-
-                // if (weekly)
-                // {
-                //     DateTime sunday = today.AddDays(-(int)today.DayOfWeek); // get sunday date by today's date by today's day of the week
-                //     DateTime saturday = sunday.AddDays((int)DayOfWeek.Saturday); // Get saturday by adding day of week to sunday
-
-                //     if (start >= sunday && end < saturday)
-                //     {
-                //         selectedAppointments.Add(appt.Key, appt.Value);
-                //     }
-                // }
-                // else
-                // {
-                //     DateTime monthStart = new DateTime(today.Year, today.Month, 1); // months always start on the first, obviously.
-                //     DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // but they don't end the same, add a month, minus a day = 28 - 31
-
-                //     if (start >= monthStart && end < monthEnd)
-                //     {
-                //         selectedAppointments.Add(appt.Key, appt.Value);
-                //     }
-                // }
             }
-            // var appt_datasource = from row in selectedAppointments
+
             var appt_datasource = from row in appointments
                                   select new
                                   {
@@ -143,7 +122,7 @@ namespace C969_Project
                                   };
             DBHelper.appointments = appointments;
 
-            // dgv_calendar.DataSource = appt_datasource.ToArray();
+
             dgv_calendar.Refresh();
         }
 
@@ -298,13 +277,13 @@ namespace C969_Project
             cmd.ExecuteNonQuery();
 
             conn.Close();
-            update_calendar(radio_weekly.Checked);
+            update_calendar();
         }
 
         private void radio_weekly_CheckedChanged(object sender, EventArgs e)
         {
             // update calender if radio changed
-            update_calendar(radio_weekly.Checked);
+            update_calendar();
         }
 
         private void btn_reports_Click(object sender, EventArgs e)
