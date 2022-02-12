@@ -154,7 +154,7 @@ namespace C969_Project
             MySqlCommand cmd = new MySqlCommand(updateStatement, conn);
             cmd.ExecuteNonQuery();
 
-            updateStatement = $"UPDATE address SET address = '{address}', phone = '{phone}', city = {city}, lastUpdate = '{DBHelper.getTodayTimeStamp()}', lastUpdateBy = '{DBHelper.currentUserName}'" +
+            updateStatement = $"UPDATE address SET address = '{address}', phone = '{phone}', cityId = {city}, lastUpdate = '{DBHelper.getTodayTimeStamp()}', lastUpdateBy = '{DBHelper.currentUserName}'" +
                 $"WHERE addressId = '{customerData["addressId"]}'";
             cmd = new MySqlCommand(updateStatement, conn);
             cmd.ExecuteNonQuery();

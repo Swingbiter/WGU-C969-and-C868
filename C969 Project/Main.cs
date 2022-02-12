@@ -230,7 +230,7 @@ namespace C969_Project
             {
                 var row = dgv_customers.SelectedRows[0];
                 int customerID = (int)row.Cells[0].Value;
-                AddEditCustomer editCust = new AddEditCustomer(customerID);
+                EditCustomer editCust = new EditCustomer(customerID);
                 editCust.FormClosed += customerFormClosed;
                 editCust.Show();
             }
