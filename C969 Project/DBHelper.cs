@@ -12,10 +12,17 @@ namespace C969_Project
     class DBHelper
     {
         public static string connection_string = "server=localhost;uid=sqlUser;pwd=Passw0rd!;database=client_schedule";
-        public static int currentUserId;
+        private static int currentUserId;
         public static string currentUserName;
         public static bool loggedIn = false;
         public static Dictionary<int, Hashtable> appointments = new Dictionary<int, Hashtable>();
+
+        // encapsulation
+        public static int CurrentUserId
+        {
+            // currentUserId can only be get here, set in another place during login
+            get { return currentUserId; }
+        }
 
         static public Dictionary<string, string> getCustomerData(int customerID)
         {

@@ -133,7 +133,7 @@ namespace C969_Project
                 string end = DBHelper.convertToDBTime(dtp_end.Value.ToString());
                 string type = txt_type.Text;
                 string fields = "customerID, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy";
-                string inserts = $"'{customerId}', '{DBHelper.currentUserId}', 'na', 'na', 'na', 'na', '{type}', 'na', '{start}', '{end}', '{DBHelper.getTodayTimeStamp()}', '{DBHelper.currentUserName}', '{DBHelper.getTodayTimeStamp()}', '{DBHelper.currentUserName}'";
+                string inserts = $"'{customerId}', '{DBHelper.CurrentUserId}', 'na', 'na', 'na', 'na', '{type}', 'na', '{start}', '{end}', '{DBHelper.getTodayTimeStamp()}', '{DBHelper.currentUserName}', '{DBHelper.getTodayTimeStamp()}', '{DBHelper.currentUserName}'";
 
                 string insertStatement = $"INSERT INTO appointment ({fields}) VALUES ({inserts})";
 
