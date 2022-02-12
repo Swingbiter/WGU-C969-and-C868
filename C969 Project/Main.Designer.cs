@@ -30,7 +30,6 @@ namespace C969_Project
         private void InitializeComponent()
         {
             this.panel_hider = new System.Windows.Forms.Panel();
-            this.btn_search = new System.Windows.Forms.Button();
             this.txtBox_search = new System.Windows.Forms.TextBox();
             this.btn_reports = new System.Windows.Forms.Button();
             this.btn_appt_delete = new System.Windows.Forms.Button();
@@ -40,10 +39,11 @@ namespace C969_Project
             this.btn_customer_edit = new System.Windows.Forms.Button();
             this.btn_customer_add = new System.Windows.Forms.Button();
             this.dgv_customers = new System.Windows.Forms.DataGridView();
-            this.radio_weekly = new System.Windows.Forms.RadioButton();
-            this.radio_monthly = new System.Windows.Forms.RadioButton();
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.lbl_welcome = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel_hider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_calendar)).BeginInit();
@@ -51,7 +51,9 @@ namespace C969_Project
             // 
             // panel_hider
             // 
-            this.panel_hider.Controls.Add(this.btn_search);
+            this.panel_hider.Controls.Add(this.label3);
+            this.panel_hider.Controls.Add(this.label2);
+            this.panel_hider.Controls.Add(this.label1);
             this.panel_hider.Controls.Add(this.txtBox_search);
             this.panel_hider.Controls.Add(this.btn_reports);
             this.panel_hider.Controls.Add(this.btn_appt_delete);
@@ -61,8 +63,6 @@ namespace C969_Project
             this.panel_hider.Controls.Add(this.btn_customer_edit);
             this.panel_hider.Controls.Add(this.btn_customer_add);
             this.panel_hider.Controls.Add(this.dgv_customers);
-            this.panel_hider.Controls.Add(this.radio_weekly);
-            this.panel_hider.Controls.Add(this.radio_monthly);
             this.panel_hider.Controls.Add(this.dgv_calendar);
             this.panel_hider.Controls.Add(this.lbl_welcome);
             this.panel_hider.Location = new System.Drawing.Point(9, 10);
@@ -72,38 +72,28 @@ namespace C969_Project
             this.panel_hider.TabIndex = 0;
             this.panel_hider.Visible = false;
             // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(215, 28);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 23);
-            this.btn_search.TabIndex = 13;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
-            // 
             // txtBox_search
             // 
-            this.txtBox_search.Location = new System.Drawing.Point(4, 31);
+            this.txtBox_search.Location = new System.Drawing.Point(189, 34);
             this.txtBox_search.Name = "txtBox_search";
-            this.txtBox_search.Size = new System.Drawing.Size(205, 20);
+            this.txtBox_search.Size = new System.Drawing.Size(101, 20);
             this.txtBox_search.TabIndex = 12;
             this.txtBox_search.TextChanged += new System.EventHandler(this.txtBox_search_TextChanged);
             // 
             // btn_reports
             // 
-            this.btn_reports.Location = new System.Drawing.Point(519, 7);
+            this.btn_reports.Location = new System.Drawing.Point(519, 27);
             this.btn_reports.Margin = new System.Windows.Forms.Padding(2);
             this.btn_reports.Name = "btn_reports";
-            this.btn_reports.Size = new System.Drawing.Size(62, 19);
+            this.btn_reports.Size = new System.Drawing.Size(62, 26);
             this.btn_reports.TabIndex = 11;
-            this.btn_reports.Text = "REPORTS";
+            this.btn_reports.Text = "Reports";
             this.btn_reports.UseVisualStyleBackColor = true;
             this.btn_reports.Click += new System.EventHandler(this.btn_reports_Click);
             // 
             // btn_appt_delete
             // 
-            this.btn_appt_delete.Location = new System.Drawing.Point(416, 297);
+            this.btn_appt_delete.Location = new System.Drawing.Point(519, 319);
             this.btn_appt_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_appt_delete.Name = "btn_appt_delete";
             this.btn_appt_delete.Size = new System.Drawing.Size(61, 19);
@@ -114,10 +104,10 @@ namespace C969_Project
             // 
             // btn_appt_edit
             // 
-            this.btn_appt_edit.Location = new System.Drawing.Point(356, 297);
+            this.btn_appt_edit.Location = new System.Drawing.Point(519, 296);
             this.btn_appt_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_appt_edit.Name = "btn_appt_edit";
-            this.btn_appt_edit.Size = new System.Drawing.Size(56, 19);
+            this.btn_appt_edit.Size = new System.Drawing.Size(62, 19);
             this.btn_appt_edit.TabIndex = 9;
             this.btn_appt_edit.Text = "EDIT";
             this.btn_appt_edit.UseVisualStyleBackColor = true;
@@ -136,7 +126,7 @@ namespace C969_Project
             // 
             // btn_customer_delete
             // 
-            this.btn_customer_delete.Location = new System.Drawing.Point(126, 297);
+            this.btn_customer_delete.Location = new System.Drawing.Point(228, 319);
             this.btn_customer_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_customer_delete.Name = "btn_customer_delete";
             this.btn_customer_delete.Size = new System.Drawing.Size(62, 19);
@@ -147,10 +137,10 @@ namespace C969_Project
             // 
             // btn_customer_edit
             // 
-            this.btn_customer_edit.Location = new System.Drawing.Point(65, 297);
+            this.btn_customer_edit.Location = new System.Drawing.Point(228, 296);
             this.btn_customer_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_customer_edit.Name = "btn_customer_edit";
-            this.btn_customer_edit.Size = new System.Drawing.Size(56, 19);
+            this.btn_customer_edit.Size = new System.Drawing.Size(62, 19);
             this.btn_customer_edit.TabIndex = 6;
             this.btn_customer_edit.Text = "EDIT";
             this.btn_customer_edit.UseVisualStyleBackColor = true;
@@ -184,31 +174,6 @@ namespace C969_Project
             this.dgv_customers.Size = new System.Drawing.Size(286, 236);
             this.dgv_customers.TabIndex = 4;
             // 
-            // radio_weekly
-            // 
-            this.radio_weekly.AutoSize = true;
-            this.radio_weekly.Checked = true;
-            this.radio_weekly.Location = new System.Drawing.Point(498, 320);
-            this.radio_weekly.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_weekly.Name = "radio_weekly";
-            this.radio_weekly.Size = new System.Drawing.Size(61, 17);
-            this.radio_weekly.TabIndex = 3;
-            this.radio_weekly.TabStop = true;
-            this.radio_weekly.Text = "Weekly";
-            this.radio_weekly.UseVisualStyleBackColor = true;
-            this.radio_weekly.CheckedChanged += new System.EventHandler(this.radio_weekly_CheckedChanged);
-            // 
-            // radio_monthly
-            // 
-            this.radio_monthly.AutoSize = true;
-            this.radio_monthly.Location = new System.Drawing.Point(498, 298);
-            this.radio_monthly.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_monthly.Name = "radio_monthly";
-            this.radio_monthly.Size = new System.Drawing.Size(62, 17);
-            this.radio_monthly.TabIndex = 2;
-            this.radio_monthly.Text = "Monthly";
-            this.radio_monthly.UseVisualStyleBackColor = true;
-            // 
             // dgv_calendar
             // 
             this.dgv_calendar.AllowUserToAddRows = false;
@@ -229,12 +194,41 @@ namespace C969_Project
             // lbl_welcome
             // 
             this.lbl_welcome.AutoSize = true;
-            this.lbl_welcome.Location = new System.Drawing.Point(2, 10);
+            this.lbl_welcome.Location = new System.Drawing.Point(-3, -1);
             this.lbl_welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_welcome.Name = "lbl_welcome";
             this.lbl_welcome.Size = new System.Drawing.Size(81, 13);
             this.lbl_welcome.TabIndex = 0;
             this.lbl_welcome.Text = "Welcome, user!";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(139, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Search:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Customers:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(296, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 15);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Appointments:";
             // 
             // Main
             // 
@@ -258,8 +252,6 @@ namespace C969_Project
         private System.Windows.Forms.Panel panel_hider;
         private System.Windows.Forms.Label lbl_welcome;
         private System.Windows.Forms.DataGridView dgv_calendar;
-        private System.Windows.Forms.RadioButton radio_weekly;
-        private System.Windows.Forms.RadioButton radio_monthly;
         private System.Windows.Forms.Button btn_appt_delete;
         private System.Windows.Forms.Button btn_appt_edit;
         private System.Windows.Forms.Button btn_appt_add;
@@ -268,8 +260,10 @@ namespace C969_Project
         private System.Windows.Forms.Button btn_customer_add;
         private System.Windows.Forms.DataGridView dgv_customers;
         private System.Windows.Forms.Button btn_reports;
-        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.TextBox txtBox_search;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 
