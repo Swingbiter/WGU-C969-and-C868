@@ -110,29 +110,29 @@ namespace C969_Project
                 DateTime end = DateTime.Parse(appt.Value["end"].ToString());
                 DateTime today = DateTime.UtcNow;
 
-                if (weekly)
-                {
-                    DateTime sunday = today.AddDays(-(int)today.DayOfWeek); // get sunday date by today's date by today's day of the week
-                    DateTime saturday = sunday.AddDays((int)DayOfWeek.Saturday); // Get saturday by adding day of week to sunday
+                // if (weekly)
+                // {
+                //     DateTime sunday = today.AddDays(-(int)today.DayOfWeek); // get sunday date by today's date by today's day of the week
+                //     DateTime saturday = sunday.AddDays((int)DayOfWeek.Saturday); // Get saturday by adding day of week to sunday
 
-                    if (start >= sunday && end < saturday)
-                    {
-                        selectedAppointments.Add(appt.Key, appt.Value);
-                    }
-                }
-                else
-                {
-                    DateTime monthStart = new DateTime(today.Year, today.Month, 1); // months always start on the first, obviously.
-                    DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // but they don't end the same, add a month, minus a day = 28 - 31
+                //     if (start >= sunday && end < saturday)
+                //     {
+                //         selectedAppointments.Add(appt.Key, appt.Value);
+                //     }
+                // }
+                // else
+                // {
+                //     DateTime monthStart = new DateTime(today.Year, today.Month, 1); // months always start on the first, obviously.
+                //     DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // but they don't end the same, add a month, minus a day = 28 - 31
 
-                    if (start >= monthStart && end < monthEnd)
-                    {
-                        selectedAppointments.Add(appt.Key, appt.Value);
-                    }
-                }
+                //     if (start >= monthStart && end < monthEnd)
+                //     {
+                //         selectedAppointments.Add(appt.Key, appt.Value);
+                //     }
+                // }
             }
-
-            var appt_datasource = from row in selectedAppointments
+            // var appt_datasource = from row in selectedAppointments
+            var appt_datasource = from row in appointments
                                   select new
                                   {
                                       ID = row.Key,
@@ -142,7 +142,8 @@ namespace C969_Project
                                       Customer = row.Value["customerName"]
                                   };
             DBHelper.appointments = appointments;
-            dgv_calendar.DataSource = appt_datasource.ToArray();
+
+            // dgv_calendar.DataSource = appt_datasource.ToArray();
             dgv_calendar.Refresh();
         }
 
