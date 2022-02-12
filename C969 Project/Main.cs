@@ -172,47 +172,6 @@ namespace C969_Project
             dt.Load(cmd.ExecuteReader());
 
             dgv_customers.DataSource = dt;
-        
-        }
-
-        public void update_customers()
-        {
-            string query = "SELECT * FROM customer";
-            MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            Dictionary<int, Hashtable> customers = new Dictionary<int, Hashtable>();
-
-            while (reader.Read())
-            {
-                Hashtable customer = new Hashtable();
-                customer.Add("customerName", reader[1]);
-                customer.Add("addressId", reader[2]);
-                customer.Add("createDate", reader[3]);
-                customer.Add("createdBy", reader[4]);
-                customer.Add("lastUpdate", reader[5]);
-                customer.Add("lastUpdateBy", reader[6]);
-
-                customers.Add(Convert.ToInt32(reader[0]), customer);
-            }
-
-            reader.Close();
-
-            
-
-            conn.Close();
-
-            var custArray = from row in customers
-                            select new
-                            {
-                                ID = row.Key,
-                                Name = row.Value["customerName"],
-                                AddressID = row.Value["addressId"]
-                            };
-
-            dgv_customers.DataSource = custArray.ToArray();
         }
 
         // Customers
