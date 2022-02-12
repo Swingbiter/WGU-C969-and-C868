@@ -161,6 +161,20 @@ namespace C969_Project
             }
         }
 
+        public void update_customer_alt()
+        {
+            string query = "SELECT * FROM customer";
+            MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            DataTable dt = new DataTable("customers");
+            dt.Load(cmd.ExecuteReader());
+
+            dgv_customers.DataSource = dt;
+        
+        }
+
         public void update_customers()
         {
             string query = "SELECT * FROM customer";
