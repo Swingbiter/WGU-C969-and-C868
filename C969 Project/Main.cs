@@ -161,7 +161,7 @@ namespace C969_Project
             }
         }
 
-        public void update_customer_alt()
+        public void update_customers()
         {
             string query = "SELECT * FROM customer";
             MySqlConnection conn = new MySqlConnection(DBHelper.connection_string);
@@ -333,6 +333,11 @@ namespace C969_Project
             {
                 return;
             }
+        }
+
+        private void txtBox_search_TextChanged(object sender, EventArgs e)
+        {
+            //
         }
     }
 }

@@ -30,6 +30,8 @@ namespace C969_Project
         private void InitializeComponent()
         {
             this.panel_hider = new System.Windows.Forms.Panel();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.txtBox_search = new System.Windows.Forms.TextBox();
             this.btn_reports = new System.Windows.Forms.Button();
             this.btn_appt_delete = new System.Windows.Forms.Button();
             this.btn_appt_edit = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@ namespace C969_Project
             this.radio_monthly = new System.Windows.Forms.RadioButton();
             this.dgv_calendar = new System.Windows.Forms.DataGridView();
             this.lbl_welcome = new System.Windows.Forms.Label();
-            this.txtBox_search = new System.Windows.Forms.TextBox();
-            this.btn_search = new System.Windows.Forms.Button();
             this.panel_hider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_customers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_calendar)).BeginInit();
@@ -71,6 +71,24 @@ namespace C969_Project
             this.panel_hider.Size = new System.Drawing.Size(597, 346);
             this.panel_hider.TabIndex = 0;
             this.panel_hider.Visible = false;
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(215, 28);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 13;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // txtBox_search
+            // 
+            this.txtBox_search.Location = new System.Drawing.Point(4, 31);
+            this.txtBox_search.Name = "txtBox_search";
+            this.txtBox_search.Size = new System.Drawing.Size(205, 20);
+            this.txtBox_search.TabIndex = 12;
+            this.txtBox_search.TextChanged += new System.EventHandler(this.txtBox_search_TextChanged);
             // 
             // btn_reports
             // 
@@ -217,23 +235,6 @@ namespace C969_Project
             this.lbl_welcome.Size = new System.Drawing.Size(81, 13);
             this.lbl_welcome.TabIndex = 0;
             this.lbl_welcome.Text = "Welcome, user!";
-            // 
-            // txtBox_search
-            // 
-            this.txtBox_search.Location = new System.Drawing.Point(4, 31);
-            this.txtBox_search.Name = "txtBox_search";
-            this.txtBox_search.Size = new System.Drawing.Size(205, 20);
-            this.txtBox_search.TabIndex = 12;
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(215, 28);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 23);
-            this.btn_search.TabIndex = 13;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // Main
             // 
