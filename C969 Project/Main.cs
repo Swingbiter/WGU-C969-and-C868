@@ -338,25 +338,18 @@ namespace C969_Project
 
         private void txtBox_search_TextChanged(object sender, EventArgs e)
         {
-            string search = txtBox_search.Text;
+            string search = txtBox_search.Text.ToLower();
             try
             {
                 var re = from row in customer_dt.AsEnumerable()
-                    where row[1].ToString().Contains(search)
+                    where row[1].ToString().ToLower().Contains(search)
                     select row;
-                
-                if (re.Count()==0)
-                {
-                    MessageBox.Show("No");
-                }
-                else
-                {
-                    dgv_customers.DataSource = re.CopyToDataTable();
-                }
+
+                dgv_customers.DataSource = re.CopyToDataTable();
             }
-            catch
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show(ex.Message);
             }
         }
     }
