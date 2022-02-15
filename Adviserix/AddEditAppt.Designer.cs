@@ -1,5 +1,5 @@
 ﻿
-namespace C969_Project
+namespace Adviserix
 {
     partial class AddEditAppt
     {

@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace C969_Project
+namespace Adviserix
 {
     public partial class AddEditCustomer : Form
     {

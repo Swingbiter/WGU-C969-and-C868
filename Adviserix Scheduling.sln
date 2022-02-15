@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32002.185
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C969 Project", "C969 Project\C969 Project.csproj", "{1A2BA3CB-9485-4851-921B-3BD7B75469E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adviserix", "Adviserix\Adviserix.csproj", "{1A2BA3CB-9485-4851-921B-3BD7B75469E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

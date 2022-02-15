@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace C969_Project
+namespace Adviserix
 {
     public partial class Main : Form
     {

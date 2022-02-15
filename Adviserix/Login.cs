@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using MySql.Data;
 
-namespace C969_Project
+namespace Adviserix
 {
     public partial class Login : Form
     {
