@@ -18,6 +18,8 @@ namespace C969_Project
         public Reports()
         {
             InitializeComponent();
+            DateTime timestamp = DateTime.Now;
+            this.Text = $"Reports {timestamp}";
             LoadReports();
         }
 
